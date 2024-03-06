@@ -1,3 +1,4 @@
+import 'package:draw_app/screens/select_wheel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -48,13 +49,20 @@ class _loginState extends State<login> {
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.white),
                 ),
-                SizedBox(height: 30,),
+                SizedBox(
+                  height: 30,
+                ),
                 IconButton(
                   onPressed: () {
-                    print("naber lan kaşmer");
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => select_wheel()));
                   },
-                  icon: Icon(CupertinoIcons.play_arrow,size: 80,),
-                  
+                  icon: Icon(
+                    CupertinoIcons.play_arrow,
+                    size: 80,
+                  ),
                 )
               ],
             ),
