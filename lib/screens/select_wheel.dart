@@ -1,3 +1,5 @@
+import 'package:draw_app/carklar/colors.dart';
+import 'package:draw_app/carklar/numbers.dart';
 import 'package:flutter/material.dart';
 
 class select_wheel extends StatefulWidget {
@@ -170,7 +172,12 @@ class _select_wheelState extends State<select_wheel> {
                     children: [
                       //E-Mail
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => numbers()),
+                          );
+                        },
                         child: Container(
                           height: 225,
                           width: 170,
@@ -201,7 +208,12 @@ class _select_wheelState extends State<select_wheel> {
                       ),
                       //SMS
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => colors()),
+                          );
+                        },
                         child: Container(
                           height: 225,
                           width: 170,
