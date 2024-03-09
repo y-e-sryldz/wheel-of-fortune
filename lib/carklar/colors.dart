@@ -12,7 +12,7 @@ class colors extends StatefulWidget {
 class _colorsState extends State<colors> {
   final selected = BehaviorSubject<int>();
 
-  int rewards = 0;
+  String rewards = "";
 
   List<String> items = [
     "Yeşil",
@@ -38,7 +38,6 @@ class _colorsState extends State<colors> {
     selected.close();
     super.dispose();
   }
-  String rewards = "";
 
 
   @override
@@ -82,7 +81,7 @@ class _colorsState extends State<colors> {
                               item,
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 25,
+                                fontSize: 16,
                               ),
                             ),
                             style: FortuneItemStyle(
@@ -95,52 +94,52 @@ class _colorsState extends State<colors> {
                     setState(() {
                       switch (selected.value) {
                         case 0:
-                          rewards = "yeşil" as int;
+                          rewards = "Yeşil";
                           break;
                         case 1:
-                          rewards = "Turkuaz" as int;
+                          rewards = "Turkuaz";
                           break;
                         case 2:
                           rewards = "Camgöbeği";
                           break;
                         case 3:
-                          rewards = "Açık mavi" as int;
+                          rewards = "Açık mavi";
                           break;
                         case 4:
-                          rewards = "Mavi" as int;
+                          rewards = "Mavi";
                           break;
                         case 5:
-                          rewards = "Çivit mavisi" as int;
+                          rewards = "Çivit mavisi";
                           break;
                         case 6:
-                          rewards = "Koyu mor" as int;
+                          rewards = "Koyu mor";
                           break;
                         case 7:
-                          rewards = "Mor" as int;
+                          rewards = "Mor";
                           break;
                         case 8:
-                          rewards = "Pembe" as int;
+                          rewards = "Pembe";
                           break;
                         case 9:
-                          rewards = "Kırmızı" as int;
+                          rewards = "Kırmızı";
                           break;
                         case 10:
-                          rewards = "Koyu turuncu" as int;
+                          rewards = "Koyu turuncu";
                           break;
                         case 11:
-                          rewards = "Turuncu" as int;
+                          rewards = "Turuncu";
                           break;
                         case 12:
-                          rewards = "Kehribar" as int;
+                          rewards = "Kehribar";
                           break;
                         case 13:
-                          rewards = "Sarı" as int;
+                          rewards = "Sarı";
                           break;
                         case 14:
-                          rewards = "Kireç" as int;
+                          rewards = "Kireç";
                           break;
                         case 15:
-                          rewards = "Açık yeşil" as int;
+                          rewards = "Açık yeşil";
                           break;
 
                         default:
