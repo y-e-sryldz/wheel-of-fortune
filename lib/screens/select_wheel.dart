@@ -1,5 +1,7 @@
 import 'package:draw_app/carklar/colors.dart';
+import 'package:draw_app/carklar/letters.dart';
 import 'package:draw_app/carklar/numbers.dart';
+import 'package:draw_app/carklar/yes_no.dart';
 import 'package:flutter/material.dart';
 
 class select_wheel extends StatefulWidget {
@@ -32,7 +34,12 @@ class _select_wheelState extends State<select_wheel> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => yes_no()),
+                          );
+                        },
                         child: Container(
                           height: 225,
                           width: 170,
@@ -69,7 +76,12 @@ class _select_wheelState extends State<select_wheel> {
                       ),
                       //VCard
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => letters()),
+                          );
+                        },
                         child: Container(
                           height: 225,
                           width: 170,
@@ -249,7 +261,9 @@ class _select_wheelState extends State<select_wheel> {
                     children: [
                       //etkinlik
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          
+                        },
                         child: Container(
                           height: 225,
                           width: 170,
