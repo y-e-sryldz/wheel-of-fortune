@@ -1,6 +1,7 @@
 import 'package:draw_app/carklar/colors.dart';
 import 'package:draw_app/carklar/letters.dart';
 import 'package:draw_app/carklar/numbers.dart';
+import 'package:draw_app/carklar/profit_loss.dart';
 import 'package:draw_app/carklar/yes_no.dart';
 import 'package:flutter/material.dart';
 
@@ -262,7 +263,10 @@ class _select_wheelState extends State<select_wheel> {
                       //etkinlik
                       GestureDetector(
                         onTap: () {
-                          
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => profit_loss()),
+                          );
                         },
                         child: Container(
                           height: 225,
