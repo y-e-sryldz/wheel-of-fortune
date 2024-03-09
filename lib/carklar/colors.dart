@@ -1,15 +1,216 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
+import 'package:rxdart/rxdart.dart';
 
 class colors extends StatefulWidget {
-  const colors({super.key});
+  const colors({Key? key}) : super(key: key);
 
   @override
-  State<colors> createState() => _colorsState();
+  _colorsState createState() => _colorsState();
 }
 
 class _colorsState extends State<colors> {
+  final selected = BehaviorSubject<int>();
+
+  int rewards = 0;
+
+  List<String> items = [
+    "Yeşil",
+    "Turkuaz",
+    "Camgöbeği",
+    "Açık mavi",
+    "Mavi",
+    "Çivit mavisi",
+    "Koyu mor",
+    "Mor",
+    "Pembe",
+    "Kırmızı",
+    "Koyu turuncu",
+    "Turuncu",
+    "Kehribar",
+    "Sarı",
+    "Kireç",
+    "Açık yeşil"
+  ];
+
+  @override
+  void dispose() {
+    selected.close();
+    super.dispose();
+  }
+  String rewards = "";
+
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            size: 24,
+          ),
+        ),
+        title: Text(
+          "Renkler",
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/arka_plan.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 380,
+                child: FortuneWheel(
+                  selected: selected.stream,
+                  animateFirst: false,
+                  items: items
+                      .map((item) => FortuneItem(
+                            child: Text(
+                              item,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 25,
+                              ),
+                            ),
+                            style: FortuneItemStyle(
+                              color: _getColorForItem(item),
+                              borderWidth: 0,
+                            ),
+                          ))
+                      .toList(),
+                  onAnimationEnd: () {
+                    setState(() {
+                      switch (selected.value) {
+                        case 0:
+                          rewards = "yeşil" as int;
+                          break;
+                        case 1:
+                          rewards = "Turkuaz" as int;
+                          break;
+                        case 2:
+                          rewards = "Camgöbeği";
+                          break;
+                        case 3:
+                          rewards = "Açık mavi" as int;
+                          break;
+                        case 4:
+                          rewards = "Mavi" as int;
+                          break;
+                        case 5:
+                          rewards = "Çivit mavisi" as int;
+                          break;
+                        case 6:
+                          rewards = "Koyu mor" as int;
+                          break;
+                        case 7:
+                          rewards = "Mor" as int;
+                          break;
+                        case 8:
+                          rewards = "Pembe" as int;
+                          break;
+                        case 9:
+                          rewards = "Kırmızı" as int;
+                          break;
+                        case 10:
+                          rewards = "Koyu turuncu" as int;
+                          break;
+                        case 11:
+                          rewards = "Turuncu" as int;
+                          break;
+                        case 12:
+                          rewards = "Kehribar" as int;
+                          break;
+                        case 13:
+                          rewards = "Sarı" as int;
+                          break;
+                        case 14:
+                          rewards = "Kireç" as int;
+                          break;
+                        case 15:
+                          rewards = "Açık yeşil" as int;
+                          break;
+
+                        default:
+                      }
+                      
+                    });
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text("Kazanan: $rewards")),
+                    );
+                  },
+                ),
+              ),
+              SizedBox(height: 10),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selected.add(Fortune.randomInt(0, items.length));
+                  });
+                },
+                child: Container(
+                  height: 40,
+                  width: 120,
+                  margin: EdgeInsets.all(3),
+                  color: Colors.blue,
+                  child: Center(child: Text("ÇEVİR")),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Color _getColorForItem(String item) {
+    switch (item) {
+      case "Yeşil":
+        return Color(0xFF59B35C);
+      case "Turkuaz":
+        return Color(0xFF159C90);
+      case "Camgöbeği":
+        return Color(0xFF14BED4);
+      case "Açık mavi":
+        return Color(0xFF17ACF0);
+      case "Mavi":
+        return Color(0xFF319BF0);
+      case "Çivit mavisi":
+        return Color(0xFF4E5EB8);
+      case "Koyu mor":
+        return Color(0xFF7149BA);
+      case "Mor":
+        return Color(0xFFA237B4);
+      case "Pembe":
+        return Color(0xFFE7306E);
+      case "Kırmızı":
+        return Color(0xFFF15146);
+      case "Koyu turuncu":
+        return Color(0xFFFB6333);
+      case "Turuncu":
+        return Color(0xFFFB9E14);
+      case "Kehribar":
+        return Color(0xFFFBC31A);
+      case "Sarı":
+        return Color(0xFFFBE949);
+      case "Kireç":
+        return Color(0xFFCEDB47);
+      case "Açık yeşil":
+        return Color(0xFF92C558);
+      default:
+        return Colors.black;
+    }
   }
 }

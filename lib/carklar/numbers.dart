@@ -58,11 +58,17 @@ class _numbersState extends State<numbers> {
                   animateFirst: false,
                   items: [
                     FortuneItem(
-                      child: Text("1",
-                          style: TextStyle(
-                              color: Color(0xFF15526D), fontSize: 35)),
+                      child: Text(
+                        "1",
+                        style: TextStyle(
+                          color: Color(0xFF15526D),
+                          fontSize: 35,
+                        ),
+                      ),
                       style: FortuneItemStyle(
-                          color: Color(0xFFF191B2), borderWidth: 0),
+                        color: Color(0xFFF191B2),
+                        borderWidth: 0,
+                      ),
                     ),
                     FortuneItem(
                       child: Text("2",
@@ -152,7 +158,7 @@ class _numbersState extends State<numbers> {
                 child: Container(
                   height: 40,
                   width: 120,
-                  margin: EdgeInsets.all(0), // Remove any margin
+                  margin: EdgeInsets.all(3), // Remove any margin
                   color: Colors.blue,
                   child: Center(child: Text("SPIN")),
                 ),
