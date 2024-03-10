@@ -5,6 +5,7 @@ import 'package:draw_app/carklar/meals.dart';
 import 'package:draw_app/carklar/numbers.dart';
 import 'package:draw_app/carklar/profit_loss.dart';
 import 'package:draw_app/carklar/yes_no.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class select_wheel extends StatefulWidget {
@@ -38,9 +39,10 @@ class _select_wheelState extends State<select_wheel> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushReplacement(
+                          Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => yes_no()),
+                            CupertinoPageRoute(
+                                builder: (context) => const yes_no()),
                           );
                         },
                         child: Container(
@@ -80,9 +82,10 @@ class _select_wheelState extends State<select_wheel> {
                       //VCard
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushReplacement(
+                          Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => letters()),
+                            CupertinoPageRoute(
+                                builder: (context) => const letters()),
                           );
                         },
                         child: Container(
@@ -120,9 +123,10 @@ class _select_wheelState extends State<select_wheel> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushReplacement(
+                          Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => kar_zarar()),
+                            CupertinoPageRoute(
+                                builder: (context) => const kar_zarar()),
                           );
                         },
                         child: Container(
@@ -192,9 +196,10 @@ class _select_wheelState extends State<select_wheel> {
                       //E-Mail
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushReplacement(
+                          Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => numbers()),
+                            CupertinoPageRoute(
+                                builder: (context) => const numbers()),
                           );
                         },
                         child: Container(
@@ -228,9 +233,10 @@ class _select_wheelState extends State<select_wheel> {
                       //SMS
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushReplacement(
+                          Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => colors()),
+                            CupertinoPageRoute(
+                                builder: (context) => const colors()),
                           );
                         },
                         child: Container(
@@ -269,11 +275,11 @@ class _select_wheelState extends State<select_wheel> {
                       //etkinlik
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushReplacement(
+                          Navigator.push(
                             context,
-                            MaterialPageRoute(
-                                builder: (context) => profit_loss()),
-                          );
+                            CupertinoPageRoute(
+                                builder: (context) => const profit_loss()),
+                          );;
                         },
                         child: Container(
                           height: 225,
@@ -306,9 +312,10 @@ class _select_wheelState extends State<select_wheel> {
                       //Metin
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushReplacement(
+                          Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => letters()),
+                            CupertinoPageRoute(
+                                builder: (context) => const meals()),
                           );
                         },
                         child: Container(

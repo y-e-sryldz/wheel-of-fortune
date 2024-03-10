@@ -102,6 +102,60 @@ class _kar_zararState extends State<kar_zarar> {
                         case 1:
                           rewards = "+1";
                           break;
+                        case 2:
+                          rewards = "+5";
+                          break;
+                        case 3:
+                          rewards = "+10";
+                          break;
+                        case 4:
+                          rewards = "+50";
+                          break;
+                        case 5:
+                          rewards = "+100";
+                          break;
+                        case 6:
+                          rewards = "+500";
+                          break;
+                        case 7:
+                          rewards = "+1,000";
+                          break;
+                        case 8:
+                          rewards = "+5,000";
+                          break;
+                        case 9:
+                          rewards = "+10,000";
+                          break;
+                        case 10:
+                          rewards = "Hiçbir şey";
+                          break;
+                        case 11:
+                          rewards = "-1";
+                          break;
+                        case 12:
+                          rewards = "-5";
+                          break;
+                        case 13:
+                          rewards = "-10";
+                          break;
+                        case 14:
+                          rewards = "-50";
+                          break;
+                        case 15:
+                          rewards = "-100";
+                          break;
+                        case 16:
+                          rewards = "-500";
+                          break;
+                        case 17:
+                          rewards = "-1,000";
+                          break;
+                        case 18:
+                          rewards = "-5,000";
+                          break;
+                        case 19:
+                          rewards = "-10,000";
+                          break;
                         default:
                           rewards = "Hataaa";
                       }
