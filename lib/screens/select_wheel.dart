@@ -1,5 +1,7 @@
 import 'package:draw_app/carklar/colors.dart';
+import 'package:draw_app/carklar/kar_zarar.dart';
 import 'package:draw_app/carklar/letters.dart';
+import 'package:draw_app/carklar/meals.dart';
 import 'package:draw_app/carklar/numbers.dart';
 import 'package:draw_app/carklar/profit_loss.dart';
 import 'package:draw_app/carklar/yes_no.dart';
@@ -116,9 +118,13 @@ class _select_wheelState extends State<select_wheel> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      //Konum
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => kar_zarar()),
+                          );
+                        },
                         child: Container(
                           height: 225,
                           width: 170,
@@ -265,7 +271,8 @@ class _select_wheelState extends State<select_wheel> {
                         onTap: () {
                           Navigator.pushReplacement(
                             context,
-                            MaterialPageRoute(builder: (context) => profit_loss()),
+                            MaterialPageRoute(
+                                builder: (context) => profit_loss()),
                           );
                         },
                         child: Container(
@@ -298,7 +305,12 @@ class _select_wheelState extends State<select_wheel> {
                       ),
                       //Metin
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => letters()),
+                          );
+                        },
                         child: Container(
                           height: 225,
                           width: 170,

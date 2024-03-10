@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class heads_tails extends StatefulWidget {
-  const heads_tails({super.key});
+class meals extends StatefulWidget {
+  const meals({super.key});
 
   @override
-  State<heads_tails> createState() => _heads_tailsState();
+  State<meals> createState() => _mealsState();
 }
 
-class _heads_tailsState extends State<heads_tails> {
+class _mealsState extends State<meals> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Placeholder();
   }
 }
