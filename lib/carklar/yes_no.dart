@@ -55,7 +55,7 @@ class _yes_noState extends State<yes_no> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/arka_plan.jpg"),
+            image: AssetImage("assets/arka_plan.jpeg"),
             fit: BoxFit.cover,
           ),
         ),
@@ -128,7 +128,7 @@ class _yes_noState extends State<yes_no> {
   Color _getColorForItem(String item) {
     switch (item) {
       case "Evet":
-        return Color(0xFF194B73);
+        return Color.fromARGB(255, 87, 94, 100);
       case "Hayır":
         return Color(0xFF7A2019);
       default:

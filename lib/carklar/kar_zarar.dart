@@ -64,7 +64,7 @@ class _kar_zararState extends State<kar_zarar> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/arka_plan.jpg"),
+            image: AssetImage("assets/arka_plan.jpeg"),
             fit: BoxFit.cover,
           ),
         ),

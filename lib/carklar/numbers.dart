@@ -42,7 +42,7 @@ class _numbersState extends State<numbers> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/arka_plan.jpg"),
+            image: AssetImage("assets/arka_plan.jpeg"),
             fit: BoxFit.cover,
           ),
         ),

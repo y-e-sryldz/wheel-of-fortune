@@ -70,7 +70,7 @@ class _lettersState extends State<letters> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/arka_plan.jpg"),
+            image: AssetImage("assets/arka_plan.jpeg"),
             fit: BoxFit.cover,
           ),
         ),

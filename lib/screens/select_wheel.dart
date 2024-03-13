@@ -1,5 +1,6 @@
 import 'package:draw_app/carklar/colors.dart';
 import 'package:draw_app/carklar/kar_zarar.dart';
+import 'package:draw_app/carklar/kararlar.dart';
 import 'package:draw_app/carklar/letters.dart';
 import 'package:draw_app/carklar/meals.dart';
 import 'package:draw_app/carklar/numbers.dart';
@@ -159,7 +160,13 @@ class _select_wheelState extends State<select_wheel> {
                       ),
                       //wi-fi
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (context) =>  kararlar()),
+                          );
+                        },
                         child: Container(
                           height: 225,
                           width: 170,
