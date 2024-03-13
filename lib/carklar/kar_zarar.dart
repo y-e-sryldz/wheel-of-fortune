@@ -47,6 +47,7 @@ class _kar_zararState extends State<kar_zarar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFF1F173D),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);

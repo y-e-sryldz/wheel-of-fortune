@@ -25,6 +25,7 @@ class _numbersState extends State<numbers> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFF1F173D),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);

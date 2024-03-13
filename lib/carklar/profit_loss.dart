@@ -38,6 +38,7 @@ class _profit_lossState extends State<profit_loss> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFF1F173D),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);

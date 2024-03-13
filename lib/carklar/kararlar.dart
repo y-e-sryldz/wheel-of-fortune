@@ -25,13 +25,6 @@ class _kararlarState extends State<kararlar> {
   }
 
   @override
-  void initState() {
-    super.initState();
-    // Örnek bir öğe ekleme
-    items.add("Öğe 1");
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -128,24 +121,18 @@ class _kararlarState extends State<kararlar> {
                         width: 280,
                         child: TextField(
                           style: TextStyle(
-                          
-                            color: Colors
-                                .black, // Set a contrasting color for better readability
-                            fontWeight: FontWeight
-                                .bold, // Make text bolder for emphasis (optional)
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
                           ),
                           controller: textFieldController,
-                          
                           decoration: InputDecoration(
+                            hintText: "Lütfen Veri Giriniz...",
                             filled: true,
-                            fillColor:
-                                Colors.white, // Set a clean background color
+                            fillColor: Colors.white,
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(
-                                  10.0), // Add rounded corners
-                              borderSide: BorderSide(
-                                  color: Colors.grey,
-                                  width: 1.0), // Customize border
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide:
+                                  BorderSide(color: Colors.grey, width: 1.0),
                             ),
                           ),
                         ),
@@ -154,7 +141,6 @@ class _kararlarState extends State<kararlar> {
                     IconButton(
                         onPressed: () {
                           setState(() {
-                            // Girilen metni items listesine ekle
                             items.add(textFieldController.text);
                             textFieldController.clear();
                           });

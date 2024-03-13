@@ -39,7 +39,7 @@ class _loginState extends State<login> {
                 Text(
                   "Eğer bir seçim yapmak  zorundaysan ve\nbirden  çok seçenek varsa bunu şansa bırak!",
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white, fontSize: 15),
+                  style: TextStyle(color: Colors.white, fontSize: 17),
                 ),
                 SizedBox(
                   height: 30,
@@ -47,7 +47,7 @@ class _loginState extends State<login> {
                 Text(
                   "Hangi Restoran?, Hangi Numara?, Ne Yemeli...\nLimitleri sen koy!",
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.white,fontSize: 17),
                 ),
                 SizedBox(
                   height: 30,
