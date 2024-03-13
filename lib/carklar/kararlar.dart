@@ -127,13 +127,26 @@ class _kararlarState extends State<kararlar> {
                         height: 50,
                         width: 280,
                         child: TextField(
-                          style: TextStyle(fontSize: 25),
+                          style: TextStyle(
+                          
+                            color: Colors
+                                .black, // Set a contrasting color for better readability
+                            fontWeight: FontWeight
+                                .bold, // Make text bolder for emphasis (optional)
+                          ),
                           controller: textFieldController,
-                          maxLines: null,
-                          expands: true,
+                          
                           decoration: InputDecoration(
                             filled: true,
-                            border: OutlineInputBorder(),
+                            fillColor:
+                                Colors.white, // Set a clean background color
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(
+                                  10.0), // Add rounded corners
+                              borderSide: BorderSide(
+                                  color: Colors.grey,
+                                  width: 1.0), // Customize border
+                            ),
                           ),
                         ),
                       ),
