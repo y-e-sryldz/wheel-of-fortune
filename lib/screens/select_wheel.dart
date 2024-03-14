@@ -43,7 +43,7 @@ class _select_wheelState extends State<select_wheel> {
                           Navigator.push(
                             context,
                             CupertinoPageRoute(
-                                builder: (context) => const yes_no()),
+                                builder: (context) => kararlar()),
                           );
                         },
                         child: Container(
@@ -51,7 +51,7 @@ class _select_wheelState extends State<select_wheel> {
                           width: 170,
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: AssetImage("assets/evet_hayir.png"),
+                              image: AssetImage("assets/kararlar.png"),
                             ),
                           ),
                           child: Column(
@@ -59,15 +59,10 @@ class _select_wheelState extends State<select_wheel> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Container(
-                                padding: EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(0.5),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
                                 child: Text(
-                                  "Evetmi  Hayırmı ?",
+                                  "Kararın ne ?",
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.white,
                                     fontSize: 18,
                                   ),
                                 ),
@@ -76,7 +71,6 @@ class _select_wheelState extends State<select_wheel> {
                           ),
                         ),
                       ),
-
                       SizedBox(
                         width: 35,
                       ),
@@ -86,7 +80,7 @@ class _select_wheelState extends State<select_wheel> {
                           Navigator.push(
                             context,
                             CupertinoPageRoute(
-                                builder: (context) => const letters()),
+                                builder: (context) => const meals()),
                           );
                         },
                         child: Container(
@@ -94,7 +88,7 @@ class _select_wheelState extends State<select_wheel> {
                           width: 170,
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: AssetImage("assets/harfler.png"),
+                              image: AssetImage("assets/yemekler.png"),
                             ),
                           ),
                           child: Column(
@@ -103,7 +97,7 @@ class _select_wheelState extends State<select_wheel> {
                             children: [
                               Container(
                                 child: Text(
-                                  "Hangi Harf ?",
+                                  "Ne Yemeli ?",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18,
@@ -164,7 +158,7 @@ class _select_wheelState extends State<select_wheel> {
                           Navigator.push(
                             context,
                             CupertinoPageRoute(
-                                builder: (context) =>  kararlar()),
+                                builder: (context) => const yes_no()),
                           );
                         },
                         child: Container(
@@ -172,7 +166,7 @@ class _select_wheelState extends State<select_wheel> {
                           width: 170,
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: AssetImage("assets/kararlar.png"),
+                              image: AssetImage("assets/evet_hayir.png"),
                             ),
                           ),
                           child: Column(
@@ -180,10 +174,15 @@ class _select_wheelState extends State<select_wheel> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Container(
+                                padding: EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                  color: Colors.white.withOpacity(0.5),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
                                 child: Text(
-                                  "Kararın ne ?",
+                                  "Evetmi  Hayırmı ?",
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.black,
                                     fontSize: 18,
                                   ),
                                 ),
@@ -286,7 +285,8 @@ class _select_wheelState extends State<select_wheel> {
                             context,
                             CupertinoPageRoute(
                                 builder: (context) => const profit_loss()),
-                          );;
+                          );
+                          ;
                         },
                         child: Container(
                           height: 225,
@@ -322,7 +322,7 @@ class _select_wheelState extends State<select_wheel> {
                           Navigator.push(
                             context,
                             CupertinoPageRoute(
-                                builder: (context) => const meals()),
+                                builder: (context) => const letters()),
                           );
                         },
                         child: Container(
@@ -330,7 +330,7 @@ class _select_wheelState extends State<select_wheel> {
                           width: 170,
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: AssetImage("assets/yemekler.png"),
+                              image: AssetImage("assets/harfler.png"),
                             ),
                           ),
                           child: Column(
@@ -339,7 +339,7 @@ class _select_wheelState extends State<select_wheel> {
                             children: [
                               Container(
                                 child: Text(
-                                  "Ne Yemeli ?",
+                                  "Hangi Harf ?",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18,

@@ -14,8 +14,9 @@ class _kararlarState extends State<kararlar> {
   TextEditingController textFieldController = TextEditingController();
 
   String rewards = "";
+  bool _isPressed = false;
 
-  List<String> items = ["a", "b"];
+  List<String> items = ["Yap", "Yapma"];
 
   @override
   void dispose() {
@@ -40,7 +41,7 @@ class _kararlarState extends State<kararlar> {
           ),
         ),
         title: Text(
-          "Kararlar",
+          "Kararın Ne?",
           style: TextStyle(
               fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
         ),
@@ -85,7 +86,7 @@ class _kararlarState extends State<kararlar> {
                               rewards = items[selected.value];
                             });
                             ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text("Kazanan: $rewards")),
+                              SnackBar(content: Text("Kararınız: $rewards")),
                             );
                           },
                         )
@@ -104,8 +105,28 @@ class _kararlarState extends State<kararlar> {
                     height: 40,
                     width: 120,
                     margin: EdgeInsets.all(3),
-                    color: Colors.blue,
-                    child: Center(child: Text("ÇEVİR")),
+                    decoration: BoxDecoration(
+                      color: Color(0xFF6A5ACD),
+                      borderRadius: BorderRadius.circular(8),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.3),
+                          spreadRadius: 1,
+                          blurRadius: 4,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: Center(
+                      child: Text(
+                        "ÇEVİR",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -163,11 +184,11 @@ class _kararlarState extends State<kararlar> {
   Color _getColorForItem(int item) {
     switch (item % 4) {
       case 0:
-        return Color(0xFFDA5B5B);
+        return Color(0xFF3BAE69);
       case 1:
         return Color(0xFF678CC8);
       case 2:
-        return Color(0xFF3BAE69);
+        return Color(0xFFDA5B5B);
       case 3:
         return Color(0xFFEFC25F);
       default:

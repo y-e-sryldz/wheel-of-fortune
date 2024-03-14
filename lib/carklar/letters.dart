@@ -61,11 +61,13 @@ class _lettersState extends State<letters> {
           icon: Icon(
             Icons.arrow_back,
             size: 24,
+            color: Colors.white,
           ),
         ),
         title: Text(
-          "Renkler",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          "Hangi Harf?",
+          style: TextStyle(
+              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
         ),
       ),
       body: Container(
@@ -200,8 +202,28 @@ class _lettersState extends State<letters> {
                   height: 40,
                   width: 120,
                   margin: EdgeInsets.all(3),
-                  color: Colors.blue,
-                  child: Center(child: Text("ÇEVİR")),
+                  decoration: BoxDecoration(
+                    color: Color(0xFF6A5ACD),
+                    borderRadius: BorderRadius.circular(8),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.3),
+                        spreadRadius: 1,
+                        blurRadius: 4,
+                        offset: Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: Center(
+                    child: Text(
+                      "ÇEVİR",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -218,53 +240,53 @@ class _lettersState extends State<letters> {
       case "B":
         return Color(0xFF86bbfb);
       case "C":
-      return Color(0xFFf3fb58);
+        return Color(0xFFf3fb58);
       case "D":
-      return Color(0xFF60d85b);
+        return Color(0xFF60d85b);
       case "E":
-      return Color(0xFF42c399);
+        return Color(0xFF42c399);
       case "F":
-      return Color(0xFF898989);
+        return Color(0xFF898989);
       case "G":
-      return Color(0xFF8014cb);
+        return Color(0xFF8014cb);
       case "H":
-      return Color(0xFFe3fbe2);
+        return Color(0xFFe3fbe2);
       case "I":
-      return Color(0xFFdbebfb);
+        return Color(0xFFdbebfb);
       case "J":
-      return Color(0xFFbf62f5);
+        return Color(0xFFbf62f5);
       case "K":
-      return Color(0xFFf1fc13);
+        return Color(0xFFf1fc13);
       case "L":
-      return Color(0xFF15b392);
+        return Color(0xFF15b392);
       case "M":
-      return Color(0xFFb61414);
+        return Color(0xFFb61414);
       case "N":
-      return Color(0xFFfb9340);
+        return Color(0xFFfb9340);
       case "O":
-      return Color(0xFF1373de);
+        return Color(0xFF1373de);
       case "P":
-      return Color(0xFFfb15e1);
+        return Color(0xFFfb15e1);
       case "Q":
-      return Color(0xFFe6e7c6);
+        return Color(0xFFe6e7c6);
       case "R":
-      return Color(0xFF8c1414);
+        return Color(0xFF8c1414);
       case "S":
-      return Color(0xFF94d883);
+        return Color(0xFF94d883);
       case "T":
-      return Color(0xFF858585);
+        return Color(0xFF858585);
       case "U":
-      return Color(0xFF99fb80);
+        return Color(0xFF99fb80);
       case "V":
-      return Color(0xFF141db3);
+        return Color(0xFF141db3);
       case "W":
-      return Color(0xFF8945bd);
+        return Color(0xFF8945bd);
       case "X":
-      return Color(0xFFe2cdfb);
+        return Color(0xFFe2cdfb);
       case "Y":
-      return Color(0xFFf9fbe5);
+        return Color(0xFFf9fbe5);
       case "Z":
-      return Color(0xFFe7f5fb);
+        return Color(0xFFe7f5fb);
       default:
         return Colors.black;
     }

@@ -33,7 +33,6 @@ class _profit_lossState extends State<profit_loss> {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,11 +45,13 @@ class _profit_lossState extends State<profit_loss> {
           icon: Icon(
             Icons.arrow_back,
             size: 24,
+            color: Colors.white,
           ),
         ),
         title: Text(
-          "Renkler",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          "Yazımı Turamı?",
+          style: TextStyle(
+              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
         ),
       ),
       body: Container(
@@ -86,7 +87,6 @@ class _profit_lossState extends State<profit_loss> {
                           ))
                       .toList(),
                   onAnimationEnd: () {
-
                     setState(() {
                       switch (selected.value % 2) {
                         case 0:
@@ -96,7 +96,6 @@ class _profit_lossState extends State<profit_loss> {
                           rewards = "Yazı";
                         default:
                       }
-                      
                     });
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text("Kazanan: $rewards")),
@@ -115,8 +114,28 @@ class _profit_lossState extends State<profit_loss> {
                   height: 40,
                   width: 120,
                   margin: EdgeInsets.all(3),
-                  color: Colors.blue,
-                  child: Center(child: Text("ÇEVİR")),
+                  decoration: BoxDecoration(
+                    color: Color(0xFF6A5ACD),
+                    borderRadius: BorderRadius.circular(8),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.3),
+                        spreadRadius: 1,
+                        blurRadius: 4,
+                        offset: Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: Center(
+                    child: Text(
+                      "ÇEVİR",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],
