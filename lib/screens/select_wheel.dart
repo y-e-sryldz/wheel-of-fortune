@@ -33,7 +33,14 @@ class _select_wheelState extends State<select_wheel> {
                   ),
                   Text(
                     "Hangi Çark ?",
-                    style: TextStyle(fontSize: 50, color: Colors.white),
+                    style: TextStyle(
+                      fontSize: 57,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.white,
+                      fontFamily: 'Roboto',
+                      fontStyle: FontStyle.italic,
+                      letterSpacing: -1.7,
+                    ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -63,7 +70,8 @@ class _select_wheelState extends State<select_wheel> {
                                   "Kararın ne ?",
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 18,
+                                    fontSize: 20,
+                                    fontStyle: FontStyle.italic,
                                   ),
                                 ),
                               ),
@@ -100,7 +108,8 @@ class _select_wheelState extends State<select_wheel> {
                                   "Ne Yemeli ?",
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 18,
+                                    fontSize: 20,
+                                    fontStyle: FontStyle.italic,
                                   ),
                                 ),
                               ),
@@ -141,7 +150,8 @@ class _select_wheelState extends State<select_wheel> {
                                   "Kim Karlı ?",
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 18,
+                                    fontSize: 20,
+                                    fontStyle: FontStyle.italic,
                                   ),
                                 ),
                               ),
@@ -173,18 +183,12 @@ class _select_wheelState extends State<select_wheel> {
                             mainAxisAlignment: MainAxisAlignment.end,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Container(
-                                padding: EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(0.5),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: Text(
-                                  "Evetmi  Hayırmı ?",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 18,
-                                  ),
+                              Text(
+                                "Evet mi Hayır mı ?",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontStyle: FontStyle.italic,
                                 ),
                               ),
                             ],
@@ -225,7 +229,8 @@ class _select_wheelState extends State<select_wheel> {
                                   "Hangi Rakam ?",
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 18,
+                                    fontSize: 20,
+                                    fontStyle: FontStyle.italic,
                                   ),
                                 ),
                               ),
@@ -262,7 +267,8 @@ class _select_wheelState extends State<select_wheel> {
                                   "Hangi renk ?",
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 18,
+                                    fontSize: 20,
+                                    fontStyle: FontStyle.italic,
                                   ),
                                 ),
                               ),
@@ -302,10 +308,11 @@ class _select_wheelState extends State<select_wheel> {
                             children: [
                               Container(
                                 child: Text(
-                                  "Yazımı Turamı ?",
+                                  "Yazı mı Tura mı ?",
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 18,
+                                    fontSize: 20,
+                                    fontStyle: FontStyle.italic,
                                   ),
                                 ),
                               ),
@@ -342,7 +349,8 @@ class _select_wheelState extends State<select_wheel> {
                                   "Hangi Harf ?",
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 18,
+                                    fontSize: 20,
+                                    fontStyle: FontStyle.italic,
                                   ),
                                 ),
                               ),

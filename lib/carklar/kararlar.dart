@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:rxdart/rxdart.dart';
 
 class kararlar extends StatefulWidget {
@@ -85,8 +87,13 @@ class _kararlarState extends State<kararlar> {
                             setState(() {
                               rewards = items[selected.value];
                             });
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text("Kararınız: $rewards")),
+                            QuickAlert.show(
+                              context: context,
+                              type: QuickAlertType.success,
+                              title: "${rewards}",
+                              text: 'Kararınız Belli Oldu',
+                              confirmBtnText: "Tamam",
+                              confirmBtnColor: Colors.green,
                             );
                           },
                         )
@@ -147,7 +154,7 @@ class _kararlarState extends State<kararlar> {
                           ),
                           controller: textFieldController,
                           decoration: InputDecoration(
-                            hintText: "Lütfen Veri Giriniz...",
+                            hintText: "Seçenek Giriniz...",
                             filled: true,
                             fillColor: Colors.white,
                             border: OutlineInputBorder(

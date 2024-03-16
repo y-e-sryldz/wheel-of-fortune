@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:draw_app/screens/select_wheel.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rxdart/rxdart.dart'; // Assuming this is the correct path
+import 'package:rxdart/rxdart.dart';
 
 class login extends StatefulWidget {
   const login({Key? key}) : super(key: key);
@@ -137,45 +137,48 @@ class _loginState extends State<login> {
                   'Neyi Seçmeli ?',
                   style: TextStyle(
                     fontSize: 50,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w900,
                     color: Colors.white,
                     fontFamily: 'Roboto',
+                    fontStyle: FontStyle.italic,
+                    letterSpacing: -1.5,
                   ),
                 ),
                 SizedBox(height: 40),
                 Container(
-                  height: 222,
+                  height: 200,
                   width: 360,
                   decoration: BoxDecoration(
-                    color: Colors.white
-                        .withOpacity(0.4), // Arka planı şeffaf beyaz yap
-                    borderRadius:
-                        BorderRadius.circular(30), // Kenarları yuvarla
+                    color: Colors.white.withOpacity(0.6),
+                    borderRadius: BorderRadius.circular(30),
                   ),
-                  padding: EdgeInsets.all(20), // Kenar boşlukları ayarla
+                  padding: EdgeInsets.all(20),
                   child: Column(
                     children: [
                       Text(
-                        "Eğer bir secim yapmak zorundaysan ve\n"
+                        "Eger bir secim yapmak zorundaysan ve "
                         "birden cok secenek varsa bunu sansa bırak!",
-                        style: GoogleFonts.permanentMarker(
+                        style: GoogleFonts.hanuman(
                           textStyle: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold
-                          ),
+                              color: Colors.black,
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold),
                         ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 25,
                       ),
                       Text(
-                        "Hangi Restoran?, Hangi Numara?, Ne Yemeli...\n"
+                        "Hangi Restoran?, Hangi Numara...\n"
                         "Limitleri sen koy!",
-                        style: GoogleFonts.permanentMarker(
+                        style: GoogleFonts.hanuman(
                           textStyle: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold
-                          ),
+                              color: Colors.black,
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold),
                         ),
+                        textAlign: TextAlign.center,
                       ),
                     ],
                   ),
