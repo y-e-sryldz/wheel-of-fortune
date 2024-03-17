@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
+import 'package:quickalert/quickalert.dart';
 import 'package:rxdart/rxdart.dart';
 
 class numbers extends StatefulWidget {
@@ -143,9 +144,14 @@ class _numbersState extends State<numbers> {
                     setState(() {
                       rewards = items[selected.value];
                     });
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Kazanan " + rewards.toString())),
-                    );
+                    QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.success,
+                        title: "${rewards}",
+                        text: 'Kararınız Belli Oldu',
+                        confirmBtnText: "Tamam",
+                        confirmBtnColor: Colors.green,
+                      );
                   },
                 ),
               ),

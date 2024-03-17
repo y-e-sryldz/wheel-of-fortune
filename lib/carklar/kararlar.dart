@@ -18,7 +18,7 @@ class _kararlarState extends State<kararlar> {
   String rewards = "";
   bool _isPressed = false;
 
-  List<String> items = ["Yap", "Yapma"];
+  List<String> items = [];
 
   @override
   void dispose() {
@@ -63,7 +63,7 @@ class _kararlarState extends State<kararlar> {
               children: [
                 SizedBox(
                   height: 380,
-                  child: items.isNotEmpty
+                  child: (items.length>1)
                       ? FortuneWheel(
                           selected: selected.stream,
                           animateFirst: false,
@@ -98,7 +98,8 @@ class _kararlarState extends State<kararlar> {
                           },
                         )
                       : Center(
-                          child: Text("Lütfen en az bir öğe ekleyin"),
+                          child: Text("2 Seçenek Girince Çark Oluşacaktır",style: TextStyle(color: Colors.white,fontSize: 25),
+                          textAlign: TextAlign.center,),
                         ),
                 ),
                 SizedBox(height: 10),

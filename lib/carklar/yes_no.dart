@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:rxdart/rxdart.dart';
 
 class yes_no extends StatefulWidget {
@@ -49,7 +51,7 @@ class _yes_noState extends State<yes_no> {
           ),
         ),
         title: Text(
-          "Evetmi Hayırmı?",
+          "Evet mi Hayır mı?",
           style: TextStyle(
               fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
         ),
@@ -97,9 +99,24 @@ class _yes_noState extends State<yes_no> {
                         default:
                       }
                     });
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Kazanan: $rewards")),
-                    );
+                    if (rewards == "Evet")
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.success,
+                        title: "${rewards}",
+                        text: 'Kararınız Belli Oldu',
+                        confirmBtnText: "Tamam",
+                        confirmBtnColor: Colors.green,
+                      );
+                    if (rewards == "Hayır")
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.error,
+                        title: "${rewards}",
+                        text: 'Kararınız Belli Oldu',
+                        confirmBtnText: "Tamam",
+                        confirmBtnColor: Colors.green,
+                      );
                   },
                 ),
               ),

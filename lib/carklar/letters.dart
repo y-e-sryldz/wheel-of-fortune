@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
+import 'package:quickalert/quickalert.dart';
 import 'package:rxdart/rxdart.dart';
 
 class letters extends StatefulWidget {
@@ -185,9 +186,14 @@ class _lettersState extends State<letters> {
                           break;
                       }
                     });
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Kazanan: $rewards")),
-                    );
+                    QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.loading,
+                        title: "${rewards}",
+                        text: 'Harfi Geldi',
+                        confirmBtnText: "Tamam",
+                        confirmBtnColor: Colors.green,
+                      );
                   },
                 ),
               ),

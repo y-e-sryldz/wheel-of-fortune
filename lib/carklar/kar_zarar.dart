@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:rxdart/rxdart.dart';
 
 class kar_zarar extends StatefulWidget {
@@ -121,13 +123,13 @@ class _kar_zararState extends State<kar_zarar> {
                           rewards = "+500";
                           break;
                         case 7:
-                          rewards = "+1,000";
+                          rewards = "+1000";
                           break;
                         case 8:
-                          rewards = "+5,000";
+                          rewards = "+5000";
                           break;
                         case 9:
-                          rewards = "+10,000";
+                          rewards = "+10000";
                           break;
                         case 10:
                           rewards = "Hiçbir şey";
@@ -151,21 +153,46 @@ class _kar_zararState extends State<kar_zarar> {
                           rewards = "-500";
                           break;
                         case 17:
-                          rewards = "-1,000";
+                          rewards = "-1000";
                           break;
                         case 18:
-                          rewards = "-5,000";
+                          rewards = "-5000";
                           break;
                         case 19:
-                          rewards = "-10,000";
+                          rewards = "-10000";
                           break;
                         default:
                           rewards = "Hataaa";
                       }
                     });
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Kazanan: $rewards")),
-                    );
+                    if (rewards == "Hiçbir şey")
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.info,
+                        title: "${rewards}",
+                        text: 'Kararınız Belli Oldu',
+                        confirmBtnText: "Tamam",
+                        confirmBtnColor: Colors.green,
+                      );
+                    if (int.parse(rewards) > 0)
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.success,
+                        title: "${rewards}",
+                        text: 'Kararınız Belli Oldu',
+                        confirmBtnText: "Tamam",
+                        confirmBtnColor: Colors.green,
+                      );
+                      if (int.parse(rewards) < 0)
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.error,
+                        title: "${rewards}",
+                        text: 'Kararınız Belli Oldu',
+                        confirmBtnText: "Tamam",
+                        confirmBtnColor: Colors.green,
+                      );
+                      
                   },
                 ),
               ),

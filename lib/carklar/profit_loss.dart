@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
+import 'package:quickalert/quickalert.dart';
 import 'package:rxdart/rxdart.dart';
 
 class profit_loss extends StatefulWidget {
@@ -97,9 +98,14 @@ class _profit_lossState extends State<profit_loss> {
                         default:
                       }
                     });
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Kazanan: $rewards")),
-                    );
+                    QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.loading,
+                        title: "${rewards}",
+                        text: 'Kararınız Belli Oldu',
+                        confirmBtnText: "Tamam",
+                        confirmBtnColor: Colors.green,
+                      );
                   },
                 ),
               ),
