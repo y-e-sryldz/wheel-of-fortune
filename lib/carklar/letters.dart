@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:quickalert/quickalert.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -11,6 +14,13 @@ class letters extends StatefulWidget {
 }
 
 class _lettersState extends State<letters> {
+  BannerAd? _bannerAd;
+  bool _isLoaded = false;
+  Orientation? _currentOrientation;
+
+  final String _adUnitId = Platform.isAndroid
+      ? 'ca-app-pub-3940256099942544/9214589741'
+      : 'ca-app-pub-3940256099942544/2435281174';
   final selected = BehaviorSubject<int>();
 
   String rewards = "";
@@ -47,7 +57,47 @@ class _lettersState extends State<letters> {
   @override
   void dispose() {
     selected.close();
+    _bannerAd?.dispose();
     super.dispose();
+  }
+  void _loadAd() async {
+    final size = await AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(
+        MediaQuery.sizeOf(context).width.truncate());
+
+    if (size == null) {
+      print("Bağlantılı banner'ın genişliği alınamıyor.");
+      return;
+    }
+
+    BannerAd bannerAd = BannerAd(
+      adUnitId: _adUnitId,
+      request: const AdRequest(),
+      size: size,
+      listener: BannerAdListener(
+        onAdLoaded: (ad) {
+          print("Bir reklam başarıyla alındığında çağrılır.");
+          setState(() {
+            _bannerAd = ad as BannerAd;
+            _isLoaded = true;
+          });
+        },
+        onAdFailedToLoad: (ad, err) {
+          print("Bir reklam isteği başarısız olduğunda çağrılır.");
+          ad.dispose();
+        },
+        onAdOpened: (Ad ad) {},
+        onAdClosed: (Ad ad) {},
+        onAdImpression: (Ad ad) {},
+      ),
+    );
+
+    bannerAd.load();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadAd();
   }
 
   @override
@@ -78,162 +128,184 @@ class _lettersState extends State<letters> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 380,
-                child: FortuneWheel(
-                  selected: selected.stream,
-                  animateFirst: false,
-                  items: items
-                      .map((item) => FortuneItem(
-                            child: Text(
-                              item,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 25,
-                              ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(height: MediaQuery.of(context).size.height * 0.13,), // Ekran yüksekliğinin %10'u),
+            SizedBox(
+              height: 380,
+              child: FortuneWheel(
+                selected: selected.stream,
+                animateFirst: false,
+                items: items
+                    .map((item) => FortuneItem(
+                          child: Text(
+                            item,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 25,
                             ),
-                            style: FortuneItemStyle(
-                              color: _getColorForItem(item),
-                              borderWidth: 0,
-                            ),
-                          ))
-                      .toList(),
-                  onAnimationEnd: () {
-                    setState(() {
-                      switch (selected.value) {
-                        case 0:
-                          rewards = "A";
-                          break;
-                        case 1:
-                          rewards = "B";
-                          break;
-                        case 2:
-                          rewards = "C";
-                          break;
-                        case 3:
-                          rewards = "D";
-                          break;
-                        case 4:
-                          rewards = "E";
-                          break;
-                        case 5:
-                          rewards = "F";
-                          break;
-                        case 6:
-                          rewards = "G";
-                          break;
-                        case 7:
-                          rewards = "H";
-                          break;
-                        case 8:
-                          rewards = "I";
-                          break;
-                        case 9:
-                          rewards = "J";
-                          break;
-                        case 10:
-                          rewards = "K";
-                          break;
-                        case 11:
-                          rewards = "L";
-                          break;
-                        case 12:
-                          rewards = "M";
-                          break;
-                        case 13:
-                          rewards = "N";
-                          break;
-                        case 14:
-                          rewards = "O";
-                          break;
-                        case 15:
-                          rewards = "P";
-                          break;
-                        case 16:
-                          rewards = "Q";
-                          break;
-                        case 17:
-                          rewards = "R";
-                          break;
-                        case 18:
-                          rewards = "S";
-                          break;
-                        case 19:
-                          rewards = "T";
-                          break;
-                        case 20:
-                          rewards = "U";
-                          break;
-                        case 21:
-                          rewards = "V";
-                          break;
-                        case 22:
-                          rewards = "W";
-                          break;
-                        case 23:
-                          rewards = "X";
-                          break;
-                        case 24:
-                          rewards = "Y";
-                          break;
-                        case 25:
-                          rewards = "Z";
-                          break;
-                      }
-                    });
-                    QuickAlert.show(
-                        context: context,
-                        type: QuickAlertType.loading,
-                        title: "${rewards}",
-                        text: 'Harfi Geldi',
-                        confirmBtnText: "Tamam",
-                        confirmBtnColor: Colors.green,
-                      );
-                  },
-                ),
-              ),
-              SizedBox(height: 10),
-              GestureDetector(
-                onTap: () {
+                          ),
+                          style: FortuneItemStyle(
+                            color: _getColorForItem(item),
+                            borderWidth: 0,
+                          ),
+                        ))
+                    .toList(),
+                onAnimationEnd: () {
                   setState(() {
-                    selected.add(Fortune.randomInt(0, items.length));
+                    switch (selected.value) {
+                      case 0:
+                        rewards = "A";
+                        break;
+                      case 1:
+                        rewards = "B";
+                        break;
+                      case 2:
+                        rewards = "C";
+                        break;
+                      case 3:
+                        rewards = "D";
+                        break;
+                      case 4:
+                        rewards = "E";
+                        break;
+                      case 5:
+                        rewards = "F";
+                        break;
+                      case 6:
+                        rewards = "G";
+                        break;
+                      case 7:
+                        rewards = "H";
+                        break;
+                      case 8:
+                        rewards = "I";
+                        break;
+                      case 9:
+                        rewards = "J";
+                        break;
+                      case 10:
+                        rewards = "K";
+                        break;
+                      case 11:
+                        rewards = "L";
+                        break;
+                      case 12:
+                        rewards = "M";
+                        break;
+                      case 13:
+                        rewards = "N";
+                        break;
+                      case 14:
+                        rewards = "O";
+                        break;
+                      case 15:
+                        rewards = "P";
+                        break;
+                      case 16:
+                        rewards = "Q";
+                        break;
+                      case 17:
+                        rewards = "R";
+                        break;
+                      case 18:
+                        rewards = "S";
+                        break;
+                      case 19:
+                        rewards = "T";
+                        break;
+                      case 20:
+                        rewards = "U";
+                        break;
+                      case 21:
+                        rewards = "V";
+                        break;
+                      case 22:
+                        rewards = "W";
+                        break;
+                      case 23:
+                        rewards = "X";
+                        break;
+                      case 24:
+                        rewards = "Y";
+                        break;
+                      case 25:
+                        rewards = "Z";
+                        break;
+                    }
                   });
+                  QuickAlert.show(
+                      context: context,
+                      type: QuickAlertType.loading,
+                      title: "${rewards}",
+                      text: 'Harfi Geldi',
+                      confirmBtnText: "Tamam",
+                      confirmBtnColor: Colors.green,
+                    );
                 },
-                child: Container(
-                  height: 40,
-                  width: 120,
-                  margin: EdgeInsets.all(3),
-                  decoration: BoxDecoration(
-                    color: Color(0xFF6A5ACD),
-                    borderRadius: BorderRadius.circular(8),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.3),
-                        spreadRadius: 1,
-                        blurRadius: 4,
-                        offset: Offset(0, 3),
-                      ),
-                    ],
-                  ),
-                  child: Center(
-                    child: Text(
-                      "ÇEVİR",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+              ),
+            ),
+            SizedBox(height: 10),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  selected.add(Fortune.randomInt(0, items.length));
+                });
+              },
+              child: Container(
+                height: 40,
+                width: 120,
+                margin: EdgeInsets.all(3),
+                decoration: BoxDecoration(
+                  color: Color(0xFF6A5ACD),
+                  borderRadius: BorderRadius.circular(8),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.3),
+                      spreadRadius: 1,
+                      blurRadius: 4,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: Text(
+                    "ÇEVİR",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+            Expanded(child: Container()),
+            OrientationBuilder(
+              builder: (context, orientation) {
+                if (_currentOrientation != orientation) {
+                  _isLoaded = false;
+                  _loadAd();
+                  _currentOrientation = orientation;
+                }
+
+                return Align(
+                  alignment: Alignment.bottomCenter,
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    height: 50, // Örnek olarak 50 birimlik bir yükseklik
+                    child: _bannerAd != null && _isLoaded
+                        ? SafeArea(
+                            child: AdWidget(ad: _bannerAd!),
+                          )
+                        : SizedBox.shrink(),
+                  ),
+                );
+              },
+            )
+          ],
         ),
       ),
     );
